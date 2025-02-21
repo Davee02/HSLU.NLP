@@ -1,0 +1,3 @@
+**/checkpoints/*
+**/wandb/*
+.ipynb_checkpoints/

@@ -398,7 +398,7 @@ def train_embeddings_model():
         embeddings_valid_loader = DataLoader(
             embeddings_valid_dataset, 
             batch_size=batch_size, 
-            shuffle=2048, 
+            shuffle=False, 
             num_workers=8
         )
         
@@ -551,7 +551,7 @@ def train_rnn_model():
         # Create model
         model = RNNQAClassifier(
             embedding_dim=embedding_dim,
-            num_layers=config.num_layers,
+            num_layers=2,
             bidirectional=config.bidirectional,
             rnn_hidden_dim=config.rnn_hidden_dim,
             classifier_hidden_dim=config.classifier_hidden_dim,

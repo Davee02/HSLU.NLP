@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 800">
+  <!-- Background -->
+  <rect width="900" height="800" fill="#f8f9fa" rx="10" ry="10"/>
+  <text x="450" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold" fill="#333">Architecture of Word Embedding Model</text>
+  
+  <!-- Input Section -->
+  <rect x="50" y="70" width="800" height="130" rx="10" ry="10" fill="#e3f2fd" stroke="#90caf9" stroke-width="2"/>
+  <text x="450" y="90" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold" fill="#1565c0">Input Tensors</text>
+  
+  <!-- Question Tensor -->
+  <rect x="100" y="110" width="300" height="70" rx="5" ry="5" fill="#bbdefb" stroke="#64b5f6" stroke-width="1"/>
+  <text x="120" y="135" font-family="Arial" font-size="14" fill="#0d47a1" font-weight="bold">Question Tensor</text>
+  <text x="120" y="160" font-family="Arial" font-size="14" fill="#0d47a1">Average of word embeddings</text>
+  <text x="250" y="135" font-family="Arial" font-size="12" fill="#0d47a1" font-style="italic">Shape: (batch_size, 300)</text>
+  
+  <!-- Choices Tensor -->
+  <rect x="500" y="110" width="300" height="70" rx="5" ry="5" fill="#bbdefb" stroke="#64b5f6" stroke-width="1"/>
+  <text x="520" y="135" font-family="Arial" font-size="14" fill="#0d47a1" font-weight="bold">Choices Tensor</text>
+  <text x="520" y="160" font-family="Arial" font-size="14" fill="#0d47a1">5 choices (averaged embeddings)</text>
+  <text x="650" y="135" font-family="Arial" font-size="12" fill="#0d47a1" font-style="italic">Shape: (batch_size, 5, 300)</text>
+  
+  <!-- Preprocessing Section -->
+  <rect x="50" y="220" width="800" height="130" rx="10" ry="10" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="2"/>
+  <text x="450" y="240" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold" fill="#2e7d32">Tensor Preparation</text>
+  
+  <!-- Question Expansion -->
+  <rect x="100" y="260" width="320" height="70" rx="5" ry="5" fill="#c8e6c9" stroke="#81c784" stroke-width="1"/>
+  <text x="120" y="285" font-family="Arial" font-size="14" fill="#1b5e20" font-weight="bold">Question Expansion</text>
+  <text x="120" y="310" font-family="Arial" font-size="14" fill="#1b5e20">Expand questions to match number of choices</text>
+  <text x="265" y="285" font-family="Arial" font-size="12" fill="#1b5e20" font-style="italic">Shape: (batch_size, 5, 300)</text>
+  
+  <!-- Concatenation -->
+  <rect x="500" y="260" width="300" height="70" rx="5" ry="5" fill="#c8e6c9" stroke="#81c784" stroke-width="1"/>
+  <text x="520" y="285" font-family="Arial" font-size="14" fill="#1b5e20" font-weight="bold">Concatenation</text>
+  <text x="520" y="310" font-family="Arial" font-size="14" fill="#1b5e20">Add question to each choice</text>
+  <text x="640" y="285" font-family="Arial" font-size="12" fill="#1b5e20" font-style="italic">Shape: (batch_size, 5, 600)</text>
+  
+  <!-- Neural Network Section -->
+  <rect x="50" y="370" width="800" height="280" rx="10" ry="10" fill="#fff3e0" stroke="#ffcc80" stroke-width="2"/>
+  <text x="450" y="390" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold" fill="#e65100">Neural Network</text>
+  
+  <!-- First Layer -->
+  <rect x="100" y="410" width="700" height="60" rx="5" ry="5" fill="#ffe0b2" stroke="#ffb74d" stroke-width="1"/>
+  <text x="120" y="435" font-family="Arial" font-size="14" fill="#e65100" font-weight="bold">First Linear Layer</text>
+  <text x="120" y="455" font-family="Arial" font-size="14" fill="#e65100">nn.Linear(600, hidden_dim)</text>
+  <text x="300" y="435" font-family="Arial" font-size="12" fill="#e65100" font-style="italic">Output shape: (batch_size, 5, hidden_dim)</text>
+  
+  <!-- ReLU -->
+  <rect x="100" y="480" width="700" height="40" rx="5" ry="5" fill="#ffe0b2" stroke="#ffb74d" stroke-width="1"/>
+  <text x="120" y="505" font-family="Arial" font-size="14" fill="#e65100" font-weight="bold">ReLU Activation</text>
+  <text x="300" y="505" font-family="Arial" font-size="12" fill="#e65100" font-style="italic">Output shape: (batch_size, 5, hidden_dim)</text>
+  
+  <!-- Dropout -->
+  <rect x="100" y="530" width="700" height="40" rx="5" ry="5" fill="#ffe0b2" stroke="#ffb74d" stroke-width="1"/>
+  <text x="120" y="555" font-family="Arial" font-size="14" fill="#e65100" font-weight="bold">Dropout</text>
+  <text x="300" y="555" font-family="Arial" font-size="12" fill="#e65100" font-style="italic">Output shape: (batch_size, 5, hidden_dim)</text>
+  
+  <!-- Second Layer -->
+  <rect x="100" y="580" width="700" height="60" rx="5" ry="5" fill="#ffe0b2" stroke="#ffb74d" stroke-width="1"/>
+  <text x="120" y="605" font-family="Arial" font-size="14" fill="#e65100" font-weight="bold">Second Linear Layer</text>
+  <text x="120" y="625" font-family="Arial" font-size="14" fill="#e65100">nn.Linear(hidden_dim, 1)</text>
+  <text x="300" y="605" font-family="Arial" font-size="12" fill="#e65100" font-style="italic">Output shape: (batch_size, 5, 1)</text>
+  
+  <!-- Output Section -->
+  <rect x="50" y="670" width="800" height="110" rx="10" ry="10" fill="#f3e5f5" stroke="#ce93d8" stroke-width="2"/>
+  <text x="450" y="690" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold" fill="#4a148c">Output Processing</text>
+  
+  <!-- Squeeze -->
+  <rect x="100" y="710" width="700" height="60" rx="5" ry="5" fill="#e1bee7" stroke="#ba68c8" stroke-width="1"/>
+  <text x="120" y="735" font-family="Arial" font-size="14" fill="#4a148c" font-weight="bold">Squeeze Final Dimension</text>
+  <text x="120" y="755" font-family="Arial" font-size="14" fill="#4a148c">Gives prediction scores (logits)</text>
+  <text x="300" y="735" font-family="Arial" font-size="12" fill="#4a148c" font-style="italic">Final shape: (batch_size, 5)</text>
+  
+  <!-- Connecting Arrows -->
+  <path d="M250,180 L250,260" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="5,5"/>
+  <polygon points="250,260 245,250 255,250" fill="#666"/>
+  
+  <path d="M650,180 L650,260" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="5,5"/>
+  <polygon points="650,260 645,250 655,250" fill="#666"/>
+  
+  <path d="M420,295 L500,295" fill="none" stroke="#666" stroke-width="2"/>
+  <polygon points="500,295 490,290 490,300" fill="#666"/>
+  
+  <path d="M650,330 L650,410" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="5,5"/>
+  <polygon points="650,410 645,400 655,400" fill="#666"/>
+  
+  <path d="M650,470 L650,480" fill="none" stroke="#666" stroke-width="2"/>
+  <polygon points="650,480 645,470 655,470" fill="#666"/>
+  
+  <path d="M650,520 L650,530" fill="none" stroke="#666" stroke-width="2"/>
+  <polygon points="650,530 645,520 655,520" fill="#666"/>
+  
+  <path d="M650,570 L650,580" fill="none" stroke="#666" stroke-width="2"/>
+  <polygon points="650,580 645,570 655,570" fill="#666"/>
+  
+  <path d="M650,640 L650,710" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="5,5"/>
+  <polygon points="650,710 645,700 655,700" fill="#666"/>
+  </svg>

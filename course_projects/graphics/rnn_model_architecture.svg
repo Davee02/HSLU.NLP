@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 950">
+  <!-- Background -->
+  <rect width="900" height="950" fill="#f8f9fa" rx="10" ry="10"/>
+  <text x="450" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold" fill="#333">Architecture of RNN Model</text>
+  
+  <!-- Input Section -->
+  <rect x="50" y="70" width="800" height="130" rx="10" ry="10" fill="#e3f2fd" stroke="#90caf9" stroke-width="2"/>
+  <text x="450" y="90" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold" fill="#1565c0">Input Tensors</text>
+  
+  <!-- Padded Sequences Tensor -->
+  <rect x="100" y="110" width="360" height="70" rx="5" ry="5" fill="#bbdefb" stroke="#64b5f6" stroke-width="1"/>
+  <text x="120" y="135" font-family="Arial" font-size="14" fill="#0d47a1" font-weight="bold">Padded Sequences</text>
+  <text x="120" y="160" font-family="Arial" font-size="14" fill="#0d47a1">Concatenated token embeddings</text>
+  <text x="255" y="135" font-family="Arial" font-size="12" fill="#0d47a1" font-style="italic">Shape: (batch_size, seq_length, 300)</text>
+  
+  <!-- Sequence Lengths Tensor -->
+  <rect x="500" y="110" width="300" height="70" rx="5" ry="5" fill="#bbdefb" stroke="#64b5f6" stroke-width="1"/>
+  <text x="520" y="135" font-family="Arial" font-size="14" fill="#0d47a1" font-weight="bold">Sequence Lengths</text>
+  <text x="520" y="160" font-family="Arial" font-size="14" fill="#0d47a1">Original lengths before padding</text>
+  <text x="650" y="135" font-family="Arial" font-size="12" fill="#0d47a1" font-style="italic">Shape: (batch_size)</text>
+  
+  <!-- Packing Section -->
+  <rect x="50" y="220" width="800" height="130" rx="10" ry="10" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="2"/>
+  <text x="450" y="240" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold" fill="#2e7d32">Sequence Packing</text>
+  
+  <!-- Pack Padded Sequence -->
+  <rect x="100" y="260" width="700" height="70" rx="5" ry="5" fill="#c8e6c9" stroke="#81c784" stroke-width="1"/>
+  <text x="120" y="285" font-family="Arial" font-size="14" fill="#1b5e20" font-weight="bold">Pack Padded Sequence</text>
+  <text x="120" y="310" font-family="Arial" font-size="14" fill="#1b5e20">Allows ignoring padding for efficiency</text>  
+  <!-- LSTM Section -->
+  <rect x="50" y="370" width="800" height="180" rx="10" ry="10" fill="#fff3e0" stroke="#ffcc80" stroke-width="2"/>
+  <text x="450" y="390" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold" fill="#e65100">LSTM Processing</text>
+  
+  <!-- LSTM Layer -->
+  <rect x="100" y="410" width="700" height="60" rx="5" ry="5" fill="#ffe0b2" stroke="#ffb74d" stroke-width="1"/>
+  <text x="120" y="435" font-family="Arial" font-size="14" fill="#e65100" font-weight="bold">Bidirectional LSTM with 2 Layers</text>
+  <text x="550" y="435" font-family="Arial" font-size="12" fill="#e65100" font-style="italic">Outputs: output, (h_n, c_n)</text>
+  
+  <!-- LSTM Output -->
+  <rect x="100" y="480" width="700" height="50" rx="5" ry="5" fill="#ffe0b2" stroke="#ffb74d" stroke-width="1"/>
+  <text x="120" y="505" font-family="Arial" font-size="14" fill="#e65100" font-weight="bold">LSTM Output: final hidden states (h_n)</text>
+  <text x="550" y="505" font-family="Arial" font-size="12" fill="#e65100" font-style="italic">Output shape: (4, batch_size, rnn_hidden_dim)</text>
+  
+  <!-- Hidden State Processing Section -->
+  <rect x="50" y="570" width="800" height="100" rx="10" ry="10" fill="#e0f7fa" stroke="#80deea" stroke-width="2"/>
+  <text x="450" y="590" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold" fill="#006064">Hidden State Processing</text>
+  
+  <!-- Concatenate Hidden States -->
+  <rect x="100" y="610" width="700" height="40" rx="5" ry="5" fill="#b2ebf2" stroke="#4dd0e1" stroke-width="1"/>
+  <text x="120" y="635" font-family="Arial" font-size="14" fill="#006064" font-weight="bold">Concatenate final forward and backward hidden states</text>
+  <text x="550" y="635" font-family="Arial" font-size="12" fill="#006064" font-style="italic">Output shape: (batch_size, 2*rnn_hidden_dim)</text>
+  
+  <!-- Classifier Section -->
+  <rect x="50" y="690" width="800" height="230" rx="10" ry="10" fill="#f3e5f5" stroke="#ce93d8" stroke-width="2"/>
+  <text x="450" y="710" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold" fill="#4a148c">Classifier</text>
+  
+  <!-- First Linear Layer -->
+  <rect x="100" y="730" width="700" height="40" rx="5" ry="5" fill="#e1bee7" stroke="#ba68c8" stroke-width="1"/>
+  <text x="120" y="755" font-family="Arial" font-size="14" fill="#4a148c" font-weight="bold">First Linear Layer: nn.Linear(2*rnn_hidden_dim, classifier_hidden_dim)</text>
+  <text x="650" y="755" font-family="Arial" font-size="12" fill="#4a148c" font-style="italic">Shape: (batch_size, 256)</text>
+  
+  <!-- ReLU -->
+  <rect x="100" y="780" width="700" height="30" rx="5" ry="5" fill="#e1bee7" stroke="#ba68c8" stroke-width="1"/>
+  <text x="120" y="800" font-family="Arial" font-size="14" fill="#4a148c" font-weight="bold">ReLU Activation</text>
+  
+  <!-- Dropout -->
+  <rect x="100" y="820" width="700" height="30" rx="5" ry="5" fill="#e1bee7" stroke="#ba68c8" stroke-width="1"/>
+  <text x="120" y="840" font-family="Arial" font-size="14" fill="#4a148c" font-weight="bold">Dropout</text>
+  
+  <!-- Second Linear Layer -->
+  <rect x="100" y="860" width="700" height="50" rx="5" ry="5" fill="#e1bee7" stroke="#ba68c8" stroke-width="1"/>
+  <text x="120" y="885" font-family="Arial" font-size="14" fill="#4a148c" font-weight="bold">Second Linear Layer: nn.Linear(classifier_hidden_dim, 5)</text>
+  <text x="650" y="885" font-family="Arial" font-size="12" fill="#4a148c" font-style="italic">Final shape: (batch_size, 5)</text>
+  <text x="120" y="905" font-family="Arial" font-size="14" fill="#4a148c">Gives prediction scores (logits)</text>
+  
+  <!-- Connecting Arrows -->
+  <path d="M250,180 L250,260" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="5,5"/>
+  <polygon points="250,260 245,250 255,250" fill="#666"/>
+  
+  <path d="M650,180 L650,260" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="5,5"/>
+  <polygon points="650,260 645,250 655,250" fill="#666"/>
+  
+  <path d="M450,330 L450,410" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="5,5"/>
+  <polygon points="450,410 445,400 455,400" fill="#666"/>
+  
+  <path d="M450,470 L450,480" fill="none" stroke="#666" stroke-width="2"/>
+  <polygon points="450,480 445,470 455,470" fill="#666"/>
+  
+  <path d="M450,530 L450,610" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="5,5"/>
+  <polygon points="450,610 445,600 455,600" fill="#666"/>
+  
+  <path d="M450,650 L450,730" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="5,5"/>
+  <polygon points="450,730 445,720 455,720" fill="#666"/>
+  
+  <path d="M450,770 L450,780" fill="none" stroke="#666" stroke-width="2"/>
+  <polygon points="450,780 445,770 455,770" fill="#666"/>
+  
+  <path d="M450,810 L450,820" fill="none" stroke="#666" stroke-width="2"/>
+  <polygon points="450,820 445,810 455,810" fill="#666"/>
+  
+  <path d="M450,850 L450,860" fill="none" stroke="#666" stroke-width="2"/>
+  <polygon points="450,860 445,850 455,850" fill="#666"/>
+</svg>

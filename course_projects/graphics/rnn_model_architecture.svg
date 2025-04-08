@@ -11,13 +11,13 @@
   <rect x="100" y="110" width="360" height="70" rx="5" ry="5" fill="#bbdefb" stroke="#64b5f6" stroke-width="1"/>
   <text x="120" y="135" font-family="Arial" font-size="14" fill="#0d47a1" font-weight="bold">Padded Sequences</text>
   <text x="120" y="160" font-family="Arial" font-size="14" fill="#0d47a1">Concatenated token embeddings</text>
-  <text x="255" y="135" font-family="Arial" font-size="12" fill="#0d47a1" font-style="italic">Shape: (batch_size, seq_length, 300)</text>
+  <text x="265" y="135" font-family="Arial" font-size="12" fill="#0d47a1" font-style="italic">Shape: (batch_size, seq_length, 300)</text>
   
   <!-- Sequence Lengths Tensor -->
   <rect x="500" y="110" width="300" height="70" rx="5" ry="5" fill="#bbdefb" stroke="#64b5f6" stroke-width="1"/>
   <text x="520" y="135" font-family="Arial" font-size="14" fill="#0d47a1" font-weight="bold">Sequence Lengths</text>
   <text x="520" y="160" font-family="Arial" font-size="14" fill="#0d47a1">Original lengths before padding</text>
-  <text x="650" y="135" font-family="Arial" font-size="12" fill="#0d47a1" font-style="italic">Shape: (batch_size)</text>
+  <text x="670" y="135" font-family="Arial" font-size="12" fill="#0d47a1" font-style="italic">Shape: (batch_size)</text>
   
   <!-- Packing Section -->
   <rect x="50" y="220" width="800" height="130" rx="10" ry="10" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="2"/>

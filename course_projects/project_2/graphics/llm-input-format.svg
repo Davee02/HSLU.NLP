@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 950 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="950" height="600" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- Input boxes -->
+  <g transform="translate(20, 45)">
+    <!-- System Prompt -->
+    <rect x="0" y="0" width="580" height="70" rx="8" ry="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
+    <text x="15" y="30" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#2e7d32">System Prompt:</text>
+    <text x="15" y="60" font-family="Courier New, monospace" font-size="15" fill="#2e7d32">You are a helpful assistant ...</text>
+    
+    <!-- Example 1 (User) -->
+    <g transform="translate(0, 80)">
+      <rect x="0" y="0" width="580" height="175" rx="8" ry="8" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
+      <text x="15" y="35" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#1565c0">Example 1 (User):</text>
+      <text x="15" y="65" font-family="Courier New, monospace" font-size="15" fill="#1565c0">Question: What do students do in school?</text>
+      <text x="15" y="85" font-family="Courier New, monospace" font-size="15" fill="#1565c0">Choices:</text>
+      <text x="15" y="105" font-family="Courier New, monospace" font-size="15" fill="#1565c0">A - they play outside</text>
+      <text x="15" y="120" font-family="Courier New, monospace" font-size="15" fill="#1565c0">B - ...</text>
+      <text x="15" y="135" font-family="Courier New, monospace" font-size="15" fill="#1565c0">C - ...</text>
+      <text x="15" y="150" font-family="Courier New, monospace" font-size="15" fill="#1565c0">D - ...</text>
+      <text x="15" y="165" font-family="Courier New, monospace" font-size="15" fill="#1565c0">E - ...</text>
+    </g>
+    
+    <!-- Example 1 (Assistant) -->
+    <g transform="translate(0, 265)">
+      <rect x="0" y="0" width="580" height="60" rx="8" ry="8" fill="#e1f5fe" stroke="#03a9f4" stroke-width="2"/>
+      <text x="15" y="35" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#0277bd">Example 1 (Assistant): D</text>
+    </g>
+    
+    <!-- Current Question (User) -->
+    <g transform="translate(0, 335)">
+      <rect x="0" y="0" width="580" height="190" rx="8" ry="8" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
+      <text x="15" y="25" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#e65100">Current Question (User):</text>
+      <text x="15" y="55" font-family="Courier New, monospace" font-size="15" fill="#e65100">Question: &lt;question&gt;</text>
+      <text x="15" y="75" font-family="Courier New, monospace" font-size="15" fill="#e65100">Choices:</text>
+      <text x="15" y="95" font-family="Courier New, monospace" font-size="15" fill="#e65100">A - &lt;choice A&gt;</text>
+      <text x="15" y="115" font-family="Courier New, monospace" font-size="15" fill="#e65100">B - &lt;choice B&gt;</text>
+      <text x="15" y="135" font-family="Courier New, monospace" font-size="15" fill="#e65100">C - &lt;choice C&gt;</text>
+      <text x="15" y="155" font-family="Courier New, monospace" font-size="15" fill="#e65100">D - &lt;choice D&gt;</text>
+      <text x="15" y="175" font-family="Courier New, monospace" font-size="15" fill="#e65100">E - &lt;choice E&gt;</text>
+    </g>
+  </g>
+  
+  <!-- Tokenizer -->
+  <g transform="translate(650, 60)">
+    <!-- Tokenizer box -->
+    <rect x="0" y="0" width="120" height="490" rx="12" ry="12" fill="#fffde7" stroke="#fbc02d" stroke-width="3"/>
+    <text x="60" y="245" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#f57f17">TOKENIZER</text>
+  </g>
+  
+  <!-- LLM -->
+  <g transform="translate(830, 220)">
+    <!-- LLM box -->
+    <rect x="0" y="0" width="80" height="200" rx="12" ry="12" fill="#e8eaf6" stroke="#3f51b5" stroke-width="3"/>
+    <text x="40" y="100" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">LLM</text>
+  </g>
+  
+  <!-- Connection lines -->
+  <g>
+    <!-- From inputs to tokenizer -->
+    <line x1="600" y1="80" x2="650" y2="80" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="600" y1="210" x2="650" y2="210" stroke="#1565c0" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="600" y1="340" x2="650" y2="340" stroke="#0277bd" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="600" y1="470" x2="650" y2="470" stroke="#e65100" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- From tokenizer to LLM -->
+    <line x1="770" y1="310" x2="820" y2="310" stroke="#f57f17" stroke-width="3" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- Arrowhead definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 950 440" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="950" height="440" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- Input boxes -->
+  <g transform="translate(20, 40)">
+    <!-- Input 1 -->
+    <rect x="0" y="0" width="480" height="60" rx="8" ry="8" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
+    <text x="15" y="35" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#1565c0">&lt;s&gt;Q: &lt;question&gt;&lt;/s&gt;&lt;s&gt;A: &lt;answer choice 1&gt;&lt;/s&gt;</text>
+    
+    <!-- Input 2 -->
+    <rect x="0" y="70" width="480" height="60" rx="8" ry="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
+    <text x="15" y="105" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#2e7d32">&lt;s&gt;Q: &lt;question&gt;&lt;/s&gt;&lt;s&gt;A: &lt;answer choice 2&gt;&lt;/s&gt;</text>
+    
+    <!-- Input 3 -->
+    <rect x="0" y="140" width="480" height="60" rx="8" ry="8" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
+    <text x="15" y="175" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#e65100">&lt;s&gt;Q: &lt;question&gt;&lt;/s&gt;&lt;s&gt;A: &lt;answer choice 3&gt;&lt;/s&gt;</text>
+    
+    <!-- Input 4 -->
+    <rect x="0" y="210" width="480" height="60" rx="8" ry="8" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2"/>
+    <text x="15" y="245" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#6a1b9a">&lt;s&gt;Q: &lt;question&gt;&lt;/s&gt;&lt;s&gt;A: &lt;answer choice 4&gt;&lt;/s&gt;</text>
+    
+    <!-- Input 5 -->
+    <rect x="0" y="280" width="480" height="60" rx="8" ry="8" fill="#e0f7fa" stroke="#00bcd4" stroke-width="2"/>
+    <text x="15" y="315" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#006064">&lt;s&gt;Q: &lt;question&gt;&lt;/s&gt;&lt;s&gt;A: &lt;answer choice 5&gt;&lt;/s&gt;</text>
+  </g>
+  
+  <!-- Tokenizer -->
+  <g transform="translate(550, 30)">
+    <!-- Tokenizer box -->
+    <rect x="5" y="0" width="150" height="370" rx="12" ry="12" fill="#fffde7" stroke="#fbc02d" stroke-width="3"/>
+    <text x="80" y="200" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#f57f17">TOKENIZER</text>
+  </g>
+  
+  <!-- Transformer -->
+  <g transform="translate(780, 30)">
+    <!-- Transformer box -->
+    <rect x="0" y="0" width="160" height="370" rx="12" ry="12" fill="#e8eaf6" stroke="#3f51b5" stroke-width="3"/>
+    <text x="80" y="200" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">TRANSFORMER</text>
+  </g>
+  
+  <!-- Connection lines -->
+  <g>
+    <!-- From inputs to tokenizer -->
+    <line x1="500" y1="70" x2="550" y2="70" stroke="#1565c0" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="500" y1="140" x2="550" y2="140" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="500" y1="210" x2="550" y2="210" stroke="#e65100" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="500" y1="280" x2="550" y2="280" stroke="#6a1b9a" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="500" y1="350" x2="550" y2="350" stroke="#006064" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- From tokenizer to transformer -->
+    <line x1="710" y1="225" x2="775" y2="225" stroke="#f57f17" stroke-width="3" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- Arrowhead definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+  </defs>
+</svg>

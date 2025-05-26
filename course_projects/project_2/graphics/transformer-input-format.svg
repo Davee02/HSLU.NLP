@@ -7,23 +7,23 @@
   <g transform="translate(20, 40)">
     <!-- Input 1 -->
     <rect x="0" y="0" width="480" height="60" rx="8" ry="8" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
-    <text x="15" y="35" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#1565c0">&lt;s&gt;Q: &lt;question&gt;&lt;/s&gt;&lt;s&gt;A: &lt;answer choice 1&gt;&lt;/s&gt;</text>
+    <text x="15" y="35" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#1565c0">&lt;s&gt;Q: &lt;question&gt;&lt;/s&gt;&lt;/s&gt;A: &lt;answer choice 1&gt;&lt;/s&gt;</text>
     
     <!-- Input 2 -->
     <rect x="0" y="70" width="480" height="60" rx="8" ry="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
-    <text x="15" y="105" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#2e7d32">&lt;s&gt;Q: &lt;question&gt;&lt;/s&gt;&lt;s&gt;A: &lt;answer choice 2&gt;&lt;/s&gt;</text>
+    <text x="15" y="105" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#2e7d32">&lt;s&gt;Q: &lt;question&gt;&lt;/s&gt;&lt;/s&gt;A: &lt;answer choice 2&gt;&lt;/s&gt;</text>
     
     <!-- Input 3 -->
     <rect x="0" y="140" width="480" height="60" rx="8" ry="8" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
-    <text x="15" y="175" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#e65100">&lt;s&gt;Q: &lt;question&gt;&lt;/s&gt;&lt;s&gt;A: &lt;answer choice 3&gt;&lt;/s&gt;</text>
+    <text x="15" y="175" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#e65100">&lt;s&gt;Q: &lt;question&gt;&lt;/s&gt;&lt;/s&gt;A: &lt;answer choice 3&gt;&lt;/s&gt;</text>
     
     <!-- Input 4 -->
     <rect x="0" y="210" width="480" height="60" rx="8" ry="8" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2"/>
-    <text x="15" y="245" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#6a1b9a">&lt;s&gt;Q: &lt;question&gt;&lt;/s&gt;&lt;s&gt;A: &lt;answer choice 4&gt;&lt;/s&gt;</text>
+    <text x="15" y="245" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#6a1b9a">&lt;s&gt;Q: &lt;question&gt;&lt;/s&gt;&lt;/s&gt;A: &lt;answer choice 4&gt;&lt;/s&gt;</text>
     
     <!-- Input 5 -->
     <rect x="0" y="280" width="480" height="60" rx="8" ry="8" fill="#e0f7fa" stroke="#00bcd4" stroke-width="2"/>
-    <text x="15" y="315" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#006064">&lt;s&gt;Q: &lt;question&gt;&lt;/s&gt;&lt;s&gt;A: &lt;answer choice 5&gt;&lt;/s&gt;</text>
+    <text x="15" y="315" font-family="Courier New, monospace" font-size="16" font-weight="bold" fill="#006064">&lt;s&gt;Q: &lt;question&gt;&lt;/s&gt;&lt;/s&gt;A: &lt;answer choice 5&gt;&lt;/s&gt;</text>
   </g>
   
   <!-- Tokenizer -->
